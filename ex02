@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+
+using namespace std;
+
+int main(){
+    int a,b;
+    char op[2];
+    string y , yes = "yes";
+
+    while(true){
+        cout << "문자를 입력하세요 : ";
+        getline(cin,y);
+        if(y == yes){
+            cout << "정답입니다.\n";
+            break;
+        }
+        else{
+            cout << "틀렸습니다.\n";
+        }
+    }
+    while(true){
+        cout << "식을 입력하세요 : ";
+        cin >> a >> op >> b;
+        if(strcmp(op,"+") == 0){
+            cout << a << " " << op << " " << b << " = " << a+b << " 입니다\n";  
+        }
+        else if(strcmp(op,"-") == 0){
+            cout << a << " " << op << " " << b << " = " << a-b << " 입니다\n";  
+        } 
+        else if(strcmp(op,"*") == 0){
+            cout << a << " " << op << " " << b << " = " << a*b << " 입니다\n";  
+        }
+        else if(strcmp(op,"/") == 0){
+            cout << a << " " << op << " " << b << " = " << a/b << " 입니다\n";  
+        }
+        else if(strcmp(op,"%") == 0){
+            cout << a << " " << op << " " << b << " = " << a%b << " 입니다\n";  
+        }
+        else if(strcmp(op,"e") == 0){
+            cout << "종료합니다. \n";
+            break;
+        }
+        else {
+            cout << "+,-,*,/,% 중에 하나만 입력해주세요. \n";
+        }
+    }
+    return 0;
+}
