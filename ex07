@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+void reversein(int n[],int *size){
+    int i;
+    for(i=0;i<100;i++){
+        cout << i+1 << "번째 숫자를 입력해주세요 : ";
+        cin >> n[i];
+        if(n[i]==0){
+            *size = i-1;
+            break;
+        }
+    }
+    
+}
+
+int main(){
+    int n[100],*size,i=0;
+    size = &i;
+    reversein(n,size);
+    cout <<"입력한 것을 반대로 출력하겠습니다."<< endl;
+
+    for(; i>=0; i--){
+        cout << i+1<< "번째 : " << n[i] << endl;
+    }
+
+    return 0;
+}
