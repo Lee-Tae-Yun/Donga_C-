@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int n){
+    if(n==1){
+        return 1;
+    }
+    return n * factorial(n-1);
+}
+
+int main(){
+    int n;
+    cout << "수를 입력하세요 : ";
+    cin >> n;
+    
+    cout << n << "팩토리얼은 ? " <<factorial(n)<< "입니다.\n";
+    return 0;
+}
