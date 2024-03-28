@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+void multiplication(int a,int b){
+    int i,j;
+    for (i=a; i<=b; i++){
+        for(j=1; j<=9;j++){
+            cout << i << " * " << j << " = " << i*j << endl;
+        }
+        cout <<"=====================\n";
+    }
+}
+
+int main(){
+    int a,b;
+    while(true){
+        cout << "출력할 구구단의 단수를 입력하세요. : ";
+        cin >> a >> b;
+        if(a<b){
+            break;
+        }
+        else{
+            cout << "작은수 부터 입력해주세요." << endl;
+        }
+    }
+    multiplication(a,b);
+    
+    return 0;
+}
