@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+void area(int r){
+   cout << "반지름이 " << r << "인 원의 넓이는 " << r*r*3.14 << "입니다.\n";
+}
+
+int main(){
+    int r;
+
+    cout << "원의 반지름을 입력하세요. : ";
+    cin >> r;
+    area(r);
+
+    return 0;
+}
