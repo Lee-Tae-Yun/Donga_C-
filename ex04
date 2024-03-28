@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+void even(int a){
+    int sum=0,i;
+    for(i=1;i<=a;i++){
+        if(i%2==0){
+            sum+=i;
+        }
+    }
+    cout << "짝수의 합 : " << sum << endl;
+}
+
+void odd(int a){
+    int sum=0,i;
+    for(i=1;i<=a;i++){
+        if(i%2!=0){
+            sum+=i;
+        }
+    }
+    cout << "홀수의 합 : " << sum << endl;  
+}
+
+
+int main(){
+    int n=0;
+    cout << "50 이하인 수를 입력해주세요 :  ";
+    cin >> n;
+    while(true){
+        if(n>50){
+            cout << "50 이하인 수를 입력해주세요 : ";
+            cin >> n;
+        }
+        else{
+            break;
+        }
+    }
+    even(n);
+    odd(n);
+    
+    return 0;
+}
