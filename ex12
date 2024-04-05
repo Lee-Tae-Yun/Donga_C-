@@ -1,0 +1,129 @@
+#include <iostream>
+using namespace std;
+
+class CoffeeMachine{
+private:
+    int coffee;
+    int water;
+    int suger;
+public:    
+    CoffeeMachine();
+    void drinkEspresso();
+    void drinkAmericano();
+    void drinkSugerCoffee();
+    void show();
+    void refill();
+};
+
+CoffeeMachine::CoffeeMachine(){
+    coffee = 100;
+    water = 100;
+    suger = 100;
+}
+
+void CoffeeMachine::drinkEspresso(){
+    if(coffee < 1 || water < 1){
+        cout << "재료가 부족하여 에스프레소를 만들수 없어 리필하겠습니다."<< endl;
+        refill();
+    }
+    else{
+        coffee -= 1;
+        water -= 1;
+        cout << "주문하신 에스프레소 입니다."<< endl;
+    }
+}
+
+void CoffeeMachine::drinkAmericano(){
+    if(coffee < 1 || water < 2){
+        cout << "재료가 부족하여 아메리카노를 만들수 없어 리필하겠습니다."<< endl;
+        refill();
+    }
+    else{
+        coffee -= 1;
+        water -= 2;
+        cout << "주문하신 아메리카노 입니다."<< endl;
+    }
+}
+
+void CoffeeMachine::drinkSugerCoffee(){
+    if(coffee < 1 || water < 2 || suger < 1){
+        cout << "재료가 부족하여 라떼를 만들수 없어 리필하겠습니다."<< endl;
+        refill();
+    }
+    coffee -= 1;
+    water -= 2;
+    suger -= 1;
+    cout << "주문하신 라떼 입니다."<< endl;
+}
+
+void CoffeeMachine::show(){
+    cout << "======= 커피머신 상태 ======="<< endl <<"원두 : " << coffee << " 물 : " << water << " 설탕 : "<< suger << endl;
+}
+
+void CoffeeMachine::refill(){
+    int refill;
+
+    if(coffee > 10 && water > 10 && suger > 10){
+        cout << "재료가 충분하여 리필 하지 않습니다." << endl;
+    }
+
+    if(coffee < 10){
+        refill = 100-coffee;
+        coffee = coffee+refill;
+        cout <<"원두가 부족하여 "<< refill << "만큼 원두를 리필 하였습니다."<< endl; 
+    }
+    if (water < 10){
+        refill = 100-water;
+        water = water+refill;
+        cout <<"물이 부족하여 "<< refill << "만큼 물을 리필 하였습니다."<< endl; 
+    }
+    if (suger < 10){
+        refill = 100-suger;
+        suger = suger+refill;
+        cout <<"설탕이 부족하여 "<< refill << "만큼 설탕을 리필 하였습니다."<< endl; 
+    }
+
+}
+
+
+
+int main(){
+    CoffeeMachine coffee;
+    int mode;
+
+    while(true){
+        cout <<"1. 에스프레소, 2. 아메리카노, 3. 설탕 커피 4. 리필 (0을 입력하면 종료) ";
+        cin >> mode;
+        switch (mode){
+            case 0:
+                cout << "종료합니다."<<endl;
+                break;
+            
+            case 1: 
+                coffee.drinkEspresso();
+                coffee.show();
+                break;
+
+            case 2:
+                coffee.drinkAmericano();
+                coffee.show();
+                break;
+
+            case 3:
+                coffee.drinkSugerCoffee();
+                coffee.show();
+                break;
+
+            case 4:
+                coffee.refill();
+                coffee.show();
+                break;
+             
+            default :
+                cout << "다시 입력해주세요" << endl;   
+            }
+            if(mode == 0){break;}
+    }
+    
+    return 0;
+}
